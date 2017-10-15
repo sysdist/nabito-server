@@ -1,0 +1,19 @@
+sk:
+  layouts:
+    navigation:
+      home: "Home"
+      menu: "Menu"
+      about: "O projekte"
+      contact: "Kontakt"
+      lang:
+        language: "Jazyk"
+        english: "Anglicky"
+        slovak: "Slovensky"
+        czech: "Česky"
+        german: "Nemecky"
+        polish: "Polsky"
+    links_auth:
+      edit_account: "Editovať konto"
+      sign_out: "Odhlásiť sa"
+      sign_in: "Prihlásiť sa"
+      sign_up: "Založiť konto"

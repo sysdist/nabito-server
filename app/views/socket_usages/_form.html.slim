@@ -1,0 +1,30 @@
+= form_for @socket_usage do |f|
+  - if @socket_usage.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@socket_usage.errors.count, "error")} prohibited this socket_usage from being saved:"
+      ul
+        - @socket_usage.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :el_socket
+    = f.text_field :el_socket
+  .field
+    = f.label :start_time
+    = f.datetime_select :start_time
+  .field
+    = f.label :end_time
+    = f.datetime_select :end_time
+  .field
+    = f.label :kWhs
+    = f.text_field :kWhs
+  .field
+    = f.label :amount
+    = f.text_field :amount
+  .field
+    = f.label :date
+    = f.date_select :date
+  .actions = f.submit

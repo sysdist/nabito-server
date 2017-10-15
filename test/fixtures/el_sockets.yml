@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  code: MyString
+  url: MyString
+  address: MyString
+  gps_lat: 1.5
+  gps_lng: 1.5
+  voltage: 1
+  i_limit: 1
+  price_per_kWh: 1.5
+  current_user: 1
+  status: 0
+
+two:
+  user_id: 2
+  code: MyString
+  url: MyString
+  address: MyString
+  gps_lat: 1.5
+  gps_lng: 1.5
+  voltage: 1
+  i_limit: 1
+  price_per_kWh: 1.5
+  current_user: 1
+  status: 0

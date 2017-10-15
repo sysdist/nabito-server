@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong El socket:
+  = @socket_load.el_socket
+p
+  strong I current:
+  = @socket_load.i_current
+p
+  strong Voltage:
+  = @socket_load.voltage
+p
+  strong Power:
+  = @socket_load.power
+p
+  strong Time:
+  = @socket_load.time
+
+= link_to 'Edit', edit_socket_load_path(@socket_load)
+'  |
+= link_to 'Back', socket_loads_path

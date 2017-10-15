@@ -1,0 +1,94 @@
+.row
+  .col-md-12.text-right
+    span = button_to "Refresh", "", { :onclick => "history.go(0)", :method => :get, class: ["btn-default"] } 
+ 
+.row
+  .col-md-12
+    /p#notice = notice
+    h1 = t('.Socket') + " ID: " + @el_socket.code 
+.row
+  .col-md-12
+    .table-responsive
+          table.table.table-bordered.table-hover
+            tbody
+              tr
+                th = "Status:"
+                td = @el_socket.status
+.row
+  .col-md-12
+    .table-responsive
+      table.table.table-bordered.table-hover.text-center
+        tbody
+          tr
+            th = "Current power:"
+            td
+              - if @el_socket.in_use
+                  h2 =  SocketLoad.where(el_socket_id: @el_socket.id).order(:time).last.power.to_s + " Watts"
+              - else
+                  h2 = "0 Watts" 
+- if !@el_socket.offline?                        
+    .row
+      .col-md-offset-0.col-md-2.col-xs-offset-1.col-xs-4
+        = link_to "ON", switch_on_el_socket_path(@el_socket), class: ["btn-green", "btn-fill"]
+        |&nbsp;    
+      .col-md-offset-0.col-md-2.col-xs-offset-2.col-xs-4
+        = link_to "OFF", switch_off_el_socket_path(@el_socket), class: ["btn-red", "btn-fill"]            
+        |&nbsp;        
+- if @el_socket.in_use                
+    .row
+      .col-md-12
+        h3 Current energy graph
+        = line_chart @el_socket.current_graph, xtitle: "Time", ytitle: "Watts", curve: false 
+    
+    
+.row
+  .col-md-12
+    .table-responsive
+          table.table.table-bordered.table-hover
+            tbody
+              tr
+                th = "Type:" 
+                td = "CEE 7/5 (Euro plug type E)"
+              tr
+                th = "Voltage (V)"
+                td = @el_socket.voltage
+              tr 
+                th = "max AC continuous (A)" 
+                td = @el_socket.i_limit
+              tr
+                th = "Price (per kWh):" 
+                td = @el_socket.price_per_kWh
+.row
+  .col-md-12
+    .table-responsive
+          table.table.table-bordered.table-hover
+            tbody    
+              tr
+                th = "Owner:" 
+                td = @el_socket.user.name
+              tr
+                th = "Code:"
+                td = @el_socket.code
+              tr
+                th = "URL:"
+                td = @el_socket.url
+              tr
+                th = "Address:"
+                td = @el_socket.address
+              tr
+                th = "GPS:"
+                td = "#{@el_socket.gps_lat} #{@el_socket.gps_lng}"
+              tr
+                th = "Monitoring frequency:"
+                td = @el_socket.frequency
+            
+/p
+/  strong Current user:
+/  = @el_socket.current_user
+
+
+    
+    
+    /= link_to 'Edit', edit_el_socket_path(@el_socket)
+    /'  |
+    /= link_to 'Back', el_sockets_path

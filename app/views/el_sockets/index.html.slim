@@ -1,0 +1,36 @@
+h1 All sockets
+
+table.table
+  thead
+    tr
+      th link
+      th Socket owner
+      th Code
+      th Url
+      th Address
+      th Gps lat
+      th Gps lng
+      th Voltage
+      th I limit
+      th Price per kwh
+      th In use
+
+
+  tbody
+    - @el_sockets.each do |el_socket|
+      tr
+        td = link_to 'Show', el_socket
+        td = el_socket.user.name
+        td = el_socket.code
+        td = el_socket.url
+        td = el_socket.address
+        td = el_socket.gps_lat
+        td = el_socket.gps_lng
+        td = el_socket.voltage
+        td = el_socket.i_limit
+        td = el_socket.price_per_kWh
+        td = el_socket.in_use
+
+br
+
+/= link_to 'New El socket', new_el_socket_path

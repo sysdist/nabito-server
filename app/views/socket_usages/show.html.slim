@@ -1,0 +1,32 @@
+H2 Charging details
+p
+  strong User:
+  = @socket_usage.user.name
+p
+  strong El socket:
+  = @socket_usage.el_socket.code
+p
+  strong Start time:
+  = @socket_usage.start_time
+p
+  strong End time:
+  = @socket_usage.end_time
+p
+  strong Kwhs:
+  = @socket_usage.kWhs
+p
+  strong Amount:
+  = @socket_usage.amount
+p
+  strong Date:
+  = @socket_usage.date
+
+.row
+  .col-md-12
+    h3 Energy use graph
+    = line_chart @socket_usage.get_loads, xtitle: "Time", ytitle: "Watts"
+
+
+= link_to 'Edit', edit_socket_usage_path(@socket_usage)
+'  |
+= link_to 'Back', socket_usages_path

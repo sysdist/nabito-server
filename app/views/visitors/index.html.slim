@@ -1,0 +1,32 @@
+.brand
+  | Nabito - the open socket
+.address-bar
+  | Systems Distributed | Slovakia | Europe |
+.row
+  .col-lg-12.text-center
+    h2.brand-before
+      small
+        | Welcome to
+    h1.brand-name
+      | Nabito - the open socket
+    hr.tagline-divider
+    h2
+      small
+        | By 
+        strong
+          | Systems Distributed
+.row
+  .col-lg-12
+    p
+    br
+    br
+    p
+      | Nabito is an open source smart electricity meter with web authorization, billing capabilities and user management. It is completely hardware and software open source.
+    p
+      | It's purpose is to be an intelligent and yet inexpensive electric socket solution for public and private parking lots for slow charging of electric vehicles.  
+    br
+    br
+    - if !user_signed_in?
+        p.text-center = link_to "Log in", new_user_session_path, class: "btn btn-primary btn-lg"
+    br
+    br

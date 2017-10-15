@@ -1,0 +1,36 @@
+h1 Billing
+
+p Individual charging periods, kWhs drawn and amounts
+
+.table-responsive
+  table.table
+    thead
+      tr
+        th User
+        th El socket
+        th Start time
+        th End time
+        th Kwhs
+        th Amount
+        th Date
+        th Details
+        /th
+        /th
+  
+    tbody
+      - @socket_usages.each do |socket_usage|
+        tr
+          td = socket_usage.user.name
+          td = socket_usage.el_socket.code
+          td = socket_usage.start_time
+          td = socket_usage.end_time
+          td = socket_usage.kWhs
+          td = socket_usage.amount
+          td = socket_usage.date
+          td = link_to 'Details', socket_usage
+          /td = link_to 'Edit', edit_socket_usage_path(socket_usage)
+          /td = link_to 'Destroy', socket_usage, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+/= link_to 'New Socket usage', new_socket_usage_path

@@ -1,0 +1,27 @@
+/ navigation styled for Bootstrap 3.0
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "NABITO - the open socket", root_path, class: "navbar-brand"
+      
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        - if user_signed_in?
+            li= link_to t('.menu'), menu_user_path(current_user)
+      ul.nav.navbar-nav.navbar-right
+        == render 'layouts/links_auth'
+        li.dropdown
+          a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+            = t('.lang.language')
+            span.caret
+          ul.dropdown-menu
+            li = link_to t('.lang.english'), locale: :en
+            li = link_to t('.lang.slovak'), locale: :sk
+        /    li = link_to t('.lang.czech'), locale: :cs
+        /    li = link_to t('.lang.german'), locale: :de
+        /    li = link_to t('.lang.polish'), locale: :pl

@@ -1,0 +1,39 @@
+= form_for @el_socket do |f|
+  - if @el_socket.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@el_socket.errors.count, "error")} prohibited this el_socket from being saved:"
+      ul
+        - @el_socket.errors.full_messages.each do |message|
+          li = message
+  
+  .row.form-group
+    .col-sm-2 = f.label :code, class: "control-label"
+    .col-sm-8 = f.text_field :code, class: "form-control"
+  .row.form-group
+    .col-sm-2 = f.label :url, class: "control-label"
+    .col-sm-8 = f.text_field :url, class: "form-control"
+  .row.form-group
+    .col-sm-2 = f.label :address, class: "control-label"
+    .col-sm-8 = f.text_field :address, class: "form-control"
+  .row.form-group
+    .col-sm-2 = f.label :gps_lat, class: "control-label"
+    .col-sm-8 = f.text_field :gps_lat, class: "form-control"
+  .row.form-group
+    .col-sm-2 = f.label :gps_lng, class: "control-label"
+    .col-sm-8 = f.text_field :gps_lng, class: "form-control"
+  .row.form-group
+    .col-sm-2 = f.label :voltage, class: "control-label"
+    .col-sm-8 = f.number_field :voltage, class: "form-control"
+  .row.form-group
+    .col-sm-2 = f.label :i_limit, class: "control-label"
+    .col-sm-8 = f.number_field :i_limit, class: "form-control"
+  .row.form-group
+    .col-sm-2 = f.label :price_per_kWh, class: "control-label"
+    .col-sm-8 = f.text_field :price_per_kWh, class: "form-control"
+  .row.form-group
+    .col-sm-offset-7.col-sm-2
+      .actions = f.submit class: "btn btn-primary"
+
+  
+
+  

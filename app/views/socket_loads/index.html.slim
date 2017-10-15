@@ -1,0 +1,30 @@
+h1 Energy usage data
+
+.table-responsive
+  table.table
+    thead
+      tr
+        th El socket
+        th I current
+        th Voltage
+        th Power
+        th Time
+        /th
+        /th
+        /th
+  
+    tbody
+      - @socket_loads.each do |socket_load|
+        tr
+          td = socket_load.el_socket.code
+          td = socket_load.i_current
+          td = socket_load.voltage
+          td = socket_load.power
+          td = socket_load.time
+          /td = link_to 'Show', socket_load
+          /td = link_to 'Edit', edit_socket_load_path(socket_load)
+          /td = link_to 'Destroy', socket_load, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Socket load', new_socket_load_path

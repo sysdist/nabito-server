@@ -1,0 +1,24 @@
+= form_for @socket_load do |f|
+  - if @socket_load.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@socket_load.errors.count, "error")} prohibited this socket_load from being saved:"
+      ul
+        - @socket_load.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :el_socket
+    = f.text_field :el_socket
+  .field
+    = f.label :i_current
+    = f.text_field :i_current
+  .field
+    = f.label :voltage
+    = f.text_field :voltage
+  .field
+    = f.label :power
+    = f.text_field :power
+  .field
+    = f.label :time
+    = f.datetime_select :time
+  .actions = f.submit
