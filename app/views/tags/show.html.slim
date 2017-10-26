@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong User:
+  = @tag.user
+p
+  strong Type:
+  = @tag.tag_type
+p
+  strong User ref:
+  = @tag.user_ref
+p
+  strong Token:
+  = @tag.token
+p
+  strong Pin:
+  = @tag.pin
+p
+  strong Status:
+  = @tag.status
+
+= link_to 'Edit', edit_tag_path(@tag)
+'  |
+= link_to 'Back', tags_path

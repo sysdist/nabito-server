@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  tag_type: "nfc"
+  user_ref: MyString
+  token: MyString
+  pin: MyString
+  status: MyString
+
+two:
+  user_id: 1
+  tag_type: "rfid"
+  user_ref: MyString
+  token: MyString
+  pin: MyString
+  status: MyString

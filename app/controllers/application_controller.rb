@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_user_language
+  before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   def after_sign_in_path_for(user)
@@ -13,6 +13,20 @@ class ApplicationController < ActionController::Base
 
   def set_user_language
     I18n.locale = params[:locale] || I18n.default_locale
+  end
+  
+  def set_locale
+    [params[:locale], cookies[:locale], extract_locale, I18n.default_locale].each do |l|
+      if l && I18n.available_locales.index(l.to_sym)
+        I18n.locale = l
+        break
+      end
+    end
+    cookies[:locale] = params[:locale] if params[:locale]
+  end
+
+  def extract_locale
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first if request.env['HTTP_ACCEPT_LANGUAGE']
   end
   
   def user_admin
