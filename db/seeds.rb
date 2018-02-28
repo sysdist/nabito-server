@@ -5,7 +5,7 @@ puts "created sample users"
 
 ElSocket.create!([
   {user_id: 1, code: "S1", url: "", address: "", gps_lat: nil, gps_lng: nil,
-   voltage: 230, i_limit: 16, price_per_kWh: 0.3, in_use: false, current_user: nil, 
+   voltage: 230, i_limit: 16, price_per_kWh: 0.3, status: 0, current_user: nil, 
    frequency: 5, mqtt_id: "random00MQTTid"}
 ])
 
