@@ -2,14 +2,32 @@
 
 one:
   el_socket: one
-  i_current: 1.5
-  voltage: 1.5
-  power: 1.5
+  i1: 1.5
+  v1: 1.5
+  p1: 1.5
+  i2: 1.5
+  v2: 1.5
+  p2: 1.5
+  i3: 1.5
+  v3: 1.5
+  p3: 1.5
+  i_total: 1.5
+  v_avg: 1.5
+  p_total: 1.5
   time: 2017-05-22 15:04:50
 
 two:
   el_socket: two
-  i_current: 1.5
-  voltage: 1.5
-  power: 1.5
+  i1: 1.5
+  v1: 1.5
+  p1: 1.5
+  i2: 1.5
+  v2: 1.5
+  p2: 1.5
+  i3: 1.5
+  v3: 1.5
+  p3: 1.5
+  i_total: 1.5
+  v_avg: 1.5
+  p_total: 1.5
   time: 2017-05-22 15:04:50

@@ -33,23 +33,24 @@ class ElSocket < ApplicationRecord
   # => "oYpoHYyzNvycqv5Mlvw8"
   # puts get_id(10)
 
-  def switch_on(active_user)
+  def switch_on(active_user, tag = nil)
     update(status: :active,current_user: active_user.id)
     mqtt_control_on
     socket_usage = SocketUsage.create!(user: active_user,
                                        el_socket: self, start_time: Time.now,
-                                       date: Date.today)
+                                       date: Date.today, start_tag: tag)
 
     active_user.last_usage = socket_usage.id
     active_user.save
   end
 
-  def switch_off(active_user)
+  def switch_off(active_user, tag = nil)
     mqtt_control_off
     socket_usage = SocketUsage.find(active_user.last_usage)
 
+    socket_usage.tag = tag
     socket_usage.end_time = Time.now
-    avg_watts = SocketLoad.where(time: socket_usage.start_time..socket_usage.end_time).average(:power)
+    avg_watts = SocketLoad.where(time: socket_usage.start_time..socket_usage.end_time).average(:p_total)
     avg_watts = 0.0 if avg_watts == nil
 
     duration = socket_usage.end_time - socket_usage.start_time
@@ -60,6 +61,7 @@ class ElSocket < ApplicationRecord
     socket_usage.kWhs = kWh
     socket_usage.amount = kWh * price_per_kWh
     socket_usage.save
+    
 
     active_user.last_usage = nil
     active_user.save

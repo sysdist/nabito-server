@@ -70,6 +70,6 @@ class SocketLoadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def socket_load_params
-      params.require(:socket_load).permit(:el_socket_id, :i_current, :voltage, :power, :time)
+      params.require(:socket_load).permit(:i1, :v1, :p1, :i2, :v2, :p2, :i3, :v3, :p3, :i_total, :v_avg, :p_total, :time)
     end
 end

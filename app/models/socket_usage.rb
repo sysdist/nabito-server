@@ -23,7 +23,7 @@ class SocketUsage < ApplicationRecord
     socket_loads = SocketLoad.where(time: start_time .. end_time)
     loads = {}
     socket_loads.each do |s|
-      loads[s.time] = s.power
+      loads[s.time] = s.p_total
     end
     return loads
   end
@@ -32,7 +32,7 @@ class SocketUsage < ApplicationRecord
     socket_loads = SocketLoad.where(time: 2.hours.ago .. Time.now)
     loads = {}
     socket_loads.each do |s|
-      loads[s.time] = s.power
+      loads[s.time] = s.p_total
     end
     return loads
   end

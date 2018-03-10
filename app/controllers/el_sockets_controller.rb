@@ -21,14 +21,31 @@
 #
 
 class ElSocketsController < ApplicationController
-  before_action :set_el_socket, only: [:show, :edit, :update, :destroy, :switch_on, :switch_off]
-  before_action :authenticate_user!
+  before_action :set_el_socket, only: [:show, :edit, :update, :destroy, :switch_on, :switch_off, :rfid]
+  before_action :authenticate_user!, except: :rfid
+  protect_from_forgery only: :rfid
 
   # GET /el_sockets
   # GET /el_sockets.json
   def index
     @el_sockets = ElSocket.all
   end
+  
+  def rfid
+    tag = params[:tag]
+    if !tag or !Socket.ip_address_list.select(&:ipv4?).map(&:ip_address).include?(request.remote_ip) 
+      head :unauthorized and return
+    end 
+    
+    current_user = User.find_by_email('rfid_user@nabito.org')
+    if @el_socket.in_use 
+      @el_socket.switch_off(current_user,tag)
+    else
+      @el_socket.switch_on(current_user,tag)
+    end
+    render json: @el_socket.status
+  end
+  
   
   def switch_on
     return unless user_approved
@@ -141,6 +158,7 @@ class ElSocketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def el_socket_params
-      params.require(:el_socket).permit(:user_id, :code, :url, :address, :gps_lat, :gps_lng, :voltage, :i_limit, :price_per_kWh, :current_user, :mqtt_id, :status)
+      params.require(:el_socket).permit(:user_id, :code, :url, :address, :gps_lat, :gps_lng, :voltage,
+                                        :i_limit, :price_per_kWh, :current_user, :mqtt_id, :status, :tag)
     end
 end

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     get 'users/:id/approve', to: 'users#approve', as: :approve_user
     get 'users/:id/disapprove', to: 'users#disapprove', as: :disapprove_user
     resources :users  
+
+    #post
+    post 'el_sockets/:id/rfid', to: 'el_sockets#rfid'
   end
+  
   
 end

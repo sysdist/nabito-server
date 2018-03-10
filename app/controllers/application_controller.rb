@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
     return true if user == current_user
     return false
   end  
-
+  
   protected
 
     def configure_permitted_parameters

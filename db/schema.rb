@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022185802) do
+ActiveRecord::Schema.define(version: 20180310200750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,10 +36,19 @@ ActiveRecord::Schema.define(version: 20171022185802) do
 
   create_table "socket_loads", force: :cascade do |t|
     t.integer  "el_socket_id"
-    t.float    "i_current"
-    t.float    "voltage"
-    t.float    "power"
     t.datetime "time"
+    t.float    "i1"
+    t.float    "v1"
+    t.float    "p1"
+    t.float    "i2"
+    t.float    "v2"
+    t.float    "p2"
+    t.float    "i3"
+    t.float    "v3"
+    t.float    "p3"
+    t.float    "i_total"
+    t.float    "v_avg"
+    t.float    "p_total"
     t.index ["el_socket_id"], name: "index_socket_loads_on_el_socket_id", using: :btree
   end
 
@@ -53,6 +62,8 @@ ActiveRecord::Schema.define(version: 20171022185802) do
     t.date     "date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "start_tag"
+    t.string   "end_tag"
     t.index ["el_socket_id"], name: "index_socket_usages_on_el_socket_id", using: :btree
     t.index ["user_id"], name: "index_socket_usages_on_user_id", using: :btree
   end

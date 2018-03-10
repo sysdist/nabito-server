@@ -16,5 +16,9 @@ class CreateUserService
                   password_confirmation: "changeme",
                   name: "user_#{i}")
     end
+    User.create!(email: "rfid_user@nabito.org",
+                  password: "changeme",
+                  password_confirmation: "changeme",
+                  name: "rfid_user")
   end
 end

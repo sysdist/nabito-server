@@ -23,7 +23,7 @@
             th = "Current power:"
             td
               - if @el_socket.in_use
-                  h2 =  SocketLoad.where(el_socket_id: @el_socket.id).order(:time).last.power.to_s + " Watts"
+                  h2 =  SocketLoad.where(el_socket_id: @el_socket.id).order(:time).last.p_total.to_s + " Watts"
               - else
                   h2 = "0 Watts" 
 - if !@el_socket.offline?                        
