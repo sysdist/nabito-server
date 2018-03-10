@@ -48,7 +48,7 @@ class ElSocket < ApplicationRecord
     mqtt_control_off
     socket_usage = SocketUsage.find(active_user.last_usage)
 
-    socket_usage.tag = tag
+    socket_usage.end_tag = tag 
     socket_usage.end_time = Time.now
     avg_watts = SocketLoad.where(time: socket_usage.start_time..socket_usage.end_time).average(:p_total)
     avg_watts = 0.0 if avg_watts == nil
