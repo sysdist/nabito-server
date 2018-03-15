@@ -37,7 +37,7 @@ class ElSocket < ApplicationRecord
     update(status: :active,current_user: active_user.id)
     mqtt_control_on
     socket_usage = SocketUsage.create!(user: active_user,
-                                       el_socket: self, start_time: Time.now,
+                                       el_socket: self, start_time: Time.now.utc,
                                        date: Date.today, start_tag: tag)
 
     active_user.last_usage = socket_usage.id
@@ -49,7 +49,7 @@ class ElSocket < ApplicationRecord
     socket_usage = SocketUsage.find(active_user.last_usage)
 
     socket_usage.end_tag = tag 
-    socket_usage.end_time = Time.now
+    socket_usage.end_time = Time.now.utc
     avg_watts = SocketLoad.where(time: socket_usage.start_time..socket_usage.end_time).average(:p_total)
     avg_watts = 0.0 if avg_watts == nil
 
