@@ -21,7 +21,7 @@ module Nabito
     
     #set local timezone
     #TODO change this!
-    config.time_zone = 'Bratislava'
-    config.active_record.default_timezone = :local # Or :utc
+    #config.time_zone = 'Bratislava'
+    #config.active_record.default_timezone = :local # Or :utc
   end
 end
