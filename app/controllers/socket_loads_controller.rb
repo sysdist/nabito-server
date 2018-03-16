@@ -1,6 +1,7 @@
 class SocketLoadsController < ApplicationController
   before_action :set_socket_load, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :user_approved
 
   # GET /socket_loads
   # GET /socket_loads.json

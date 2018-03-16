@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_approved
+
 
   def index
     return unless user_admin

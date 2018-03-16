@@ -23,6 +23,7 @@
 class ElSocketsController < ApplicationController
   before_action :set_el_socket, only: [:show, :edit, :update, :destroy, :switch_on, :switch_off, :rfid]
   before_action :authenticate_user!, except: :rfid
+  before_action :user_approved, except: :rfid
   protect_from_forgery only: :rfid
 
   # GET /el_sockets

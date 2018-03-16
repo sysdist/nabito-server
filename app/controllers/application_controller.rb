@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
     
   def user_approved
     if !current_user.is_approved
-      redirect_to root_path, :alert => "Your user account is not approved yet, access denied."
+      redirect_to root_path, :alert => "Your user account is not approved yet, access denied. Please contact the administrator."
       return false
     end
     return true

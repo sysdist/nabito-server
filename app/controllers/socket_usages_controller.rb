@@ -1,6 +1,7 @@
 class SocketUsagesController < ApplicationController
   before_action :set_socket_usage, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :user_approved
 
   # GET /socket_usages
   # GET /socket_usages.json
