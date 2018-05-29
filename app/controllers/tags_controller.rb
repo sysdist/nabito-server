@@ -7,7 +7,8 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = current_user.tags
+    @tags = current_user.tags 
+    @tags = Tag.all if user_admin
   end
 
   # GET /tags/1
@@ -21,7 +22,7 @@ class TagsController < ApplicationController
     @tag.user_id = current_user.id
     @tag.status = 'ACTIVE'
     @tag.tag_type = 'RFID'
-    @tag.user_ref = SecureRandom.urlsafe_base64(6)
+    @tag.uid = SecureRandom.urlsafe_base64(6)
     @tag.token = SecureRandom.urlsafe_base64(15)
     
     respond_to do |format|
@@ -89,6 +90,6 @@ class TagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
-      params.require(:tag).permit(:user_id, :tag_type, :user_ref, :token, :pin, :status)
+      params.require(:tag).permit(:user_id, :tag_type, :uid, :token, :pin, :status)
     end
 end

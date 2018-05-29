@@ -10,7 +10,12 @@ ElSocket.create!([
 ])
 
 SocketUsage.create!([
-  {user_id: 1, el_socket_id: 1, start_time: "2017-06-02 12:04:03", end_time: "2017-06-02 12:42:20", kWhs: 0.0263776379361082, amount: 0.00791329138083245, date: "2017-06-02"}
+  {user_id: 1, el_socket_id: 1, start_time: "2017-06-02 12:04:03", end_time: "2017-06-02 12:42:20", kWhs: 0.0263776379361082, amount: 0.00791329138083245, date: "2017-06-02",
+    start_tag: "25FB4DBE", end_tag: "25FB4DBE"}
+ ])
+ 
+ Tag.create!([
+   {user_id: 7, tag_type: "RFID", uid: "25FB4DBE" }
  ])
 
 SocketLoad.create!([

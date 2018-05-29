@@ -14,11 +14,11 @@ class SocketLoadsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should get new" do
-    # get new_socket_load_url
-    # assert_response :success
-  # end
-# 
+  test "should get new" do
+    get new_socket_load_url
+    assert_response :success
+  end
+
   # test "should create socket_load" do
     # assert_difference('SocketLoad.count') do
       # post socket_loads_url, params: { socket_load: { el_socket_id: @socket_load.el_socket_id, i_current: @socket_load.i_current, power: @socket_load.power, time: @socket_load.time, voltage: @socket_load.voltage } }

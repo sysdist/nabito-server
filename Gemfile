@@ -26,6 +26,7 @@ gem 'figaro'
 
 
 group :development do
+  gem 'annotate','~> 2.7.2' 
   gem 'railroady'
   gem 'seed_dump'
   gem 'web-console', '>= 3.3.0'

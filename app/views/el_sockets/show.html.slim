@@ -1,6 +1,8 @@
 .row
   .col-md-12.text-right
     span = button_to "Refresh", "", { :onclick => "history.go(0)", :method => :get, class: ["btn-default"] } 
+    - if current_user.is_admin
+      = link_to t('.edit_socket'), edit_el_socket_path(@el_socket), class: ["btn-yellow"]
  
 .row
   .col-md-12

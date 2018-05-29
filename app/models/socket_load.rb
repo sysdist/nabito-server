@@ -4,10 +4,19 @@
 #
 #  id           :integer          not null, primary key
 #  el_socket_id :integer
-#  i_current    :float
-#  voltage      :float
-#  power        :float
 #  time         :datetime
+#  i1           :float
+#  v1           :float
+#  p1           :float
+#  i2           :float
+#  v2           :float
+#  p2           :float
+#  i3           :float
+#  v3           :float
+#  p3           :float
+#  i_total      :float
+#  v_avg        :float
+#  p_total      :float
 #
 
 class SocketLoad < ApplicationRecord

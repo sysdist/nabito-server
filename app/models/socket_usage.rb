@@ -12,6 +12,8 @@
 #  date         :date
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  start_tag    :string
+#  end_tag      :string
 #
 
 class SocketUsage < ApplicationRecord

@@ -42,7 +42,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update tag" do
-    patch tag_url(@tag), params: { tag: { pin: @tag.pin, status: @tag.status, token: @tag.token, type: @tag.tag_type, user_id: @tag.user_id, user_ref: @tag.user_ref } }
+    patch tag_url(@tag), params: { tag: { pin: @tag.pin, status: @tag.status, token: @tag.token, type: @tag.tag_type, user_id: @tag.user_id, uid: @tag.uid } }
     #assert_redirected_to tag_url(@tag)
   end
 

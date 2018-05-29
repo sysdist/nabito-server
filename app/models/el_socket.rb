@@ -12,12 +12,12 @@
 #  voltage       :integer
 #  i_limit       :integer
 #  price_per_kWh :float
-#  in_use        :boolean
 #  current_user  :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  frequency     :integer
 #  mqtt_id       :string
+#  status        :integer
 #
 
 class ElSocket < ApplicationRecord
