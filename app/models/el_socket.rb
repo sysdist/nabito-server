@@ -16,8 +16,8 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  frequency     :integer
-#  mqtt_id       :string
 #  status        :integer
+#  thing_name    :string
 #
 
 class ElSocket < ApplicationRecord
