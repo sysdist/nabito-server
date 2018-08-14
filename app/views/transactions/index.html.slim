@@ -1,0 +1,42 @@
+h1 Listing transactions
+
+.table-responsive
+  table.table
+    thead
+      tr
+        th User
+        th Charger's owner
+        th Box
+        th Connector
+        th Kwhs used
+        th Price per kwh
+        th Amount
+        th Date
+        th Begin time
+        th End time
+        th Status
+        th
+        th
+        th
+  
+    tbody
+      - @transactions.each do |transaction|
+        tr
+          td = transaction.debtor_id
+          td = transaction.creditor_id
+          td = transaction.box.id
+          td = transaction.connector.id
+          td = transaction.kWhs_used
+          td = transaction.price_per_kWh
+          td = transaction.amount
+          td = transaction.date_posted
+          td = transaction.begin_time
+          td = transaction.end_time
+          td = transaction.status
+          td = link_to 'Show', transaction
+          td = link_to 'Edit', edit_transaction_path(transaction)
+          td = link_to 'Destroy', transaction, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Transaction', new_transaction_path

@@ -1,0 +1,49 @@
+# == Schema Information
+#
+# Table name: connectors
+#
+#  id            :integer          not null, primary key
+#  box_id        :integer
+#  aws_conn_id   :string
+#  code          :string
+#  url           :string
+#  power         :decimal(, )
+#  voltage       :integer
+#  i_max         :decimal(, )
+#  price_per_kWh :decimal(, )
+#  current_user  :integer
+#  frequency     :integer
+#  status        :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  name          :string
+#  current_tnx   :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  box: one
+  aws_conn_id: MyString
+  code: MyString
+  url: MyString
+  power: 9.99
+  voltage: 1
+  i_max: 9.99
+  price_per_kWh: 9.99
+  current_user: 1
+  frequency: 1
+  status: MyString
+
+two:
+  box: two
+  aws_conn_id: MyString
+  code: MyString
+  url: MyString
+  power: 9.99
+  voltage: 1
+  i_max: 9.99
+  price_per_kWh: 9.99
+  current_user: 1
+  frequency: 1
+  status: MyString

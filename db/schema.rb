@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629093722) do
+ActiveRecord::Schema.define(version: 20180813200509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boxes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "code"
+    t.string   "type"
+    t.decimal  "power"
+    t.string   "description"
+    t.string   "url"
+    t.string   "address"
+    t.float    "gps_lat"
+    t.float    "gps_lng"
+    t.string   "status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "aws_thing_name"
+    t.index ["user_id"], name: "index_boxes_on_user_id", using: :btree
+  end
+
+  create_table "connectors", force: :cascade do |t|
+    t.integer  "box_id"
+    t.string   "aws_conn_id"
+    t.string   "code"
+    t.string   "url"
+    t.decimal  "power"
+    t.integer  "voltage"
+    t.decimal  "i_max"
+    t.decimal  "price_per_kWh"
+    t.integer  "current_user"
+    t.integer  "frequency"
+    t.string   "status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "name"
+    t.integer  "current_tnx"
+    t.index ["box_id"], name: "index_connectors_on_box_id", using: :btree
+  end
 
   create_table "el_sockets", force: :cascade do |t|
     t.integer  "user_id"
@@ -80,6 +116,28 @@ ActiveRecord::Schema.define(version: 20180629093722) do
     t.index ["user_id"], name: "index_tags_on_user_id", using: :btree
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "debtor_id"
+    t.integer  "creditor_id"
+    t.integer  "box_id"
+    t.integer  "connector_id"
+    t.decimal  "kWhs_used"
+    t.decimal  "price_per_kWh"
+    t.decimal  "amount"
+    t.date     "date_posted"
+    t.datetime "begin_time"
+    t.datetime "end_time"
+    t.string   "status"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "meter_Whs_start"
+    t.integer  "meter_Whs_finish"
+    t.integer  "tag_id_start"
+    t.integer  "tag_id_finish"
+    t.index ["box_id"], name: "index_transactions_on_box_id", using: :btree
+    t.index ["connector_id"], name: "index_transactions_on_connector_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -101,9 +159,13 @@ ActiveRecord::Schema.define(version: 20180629093722) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "boxes", "users"
+  add_foreign_key "connectors", "boxes"
   add_foreign_key "el_sockets", "users"
   add_foreign_key "socket_loads", "el_sockets"
   add_foreign_key "socket_usages", "el_sockets"
   add_foreign_key "socket_usages", "users"
   add_foreign_key "tags", "users"
+  add_foreign_key "transactions", "boxes"
+  add_foreign_key "transactions", "connectors"
 end

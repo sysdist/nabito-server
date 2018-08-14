@@ -1,0 +1,55 @@
+p#notice = notice
+
+p
+  strong User:
+  = @transaction.debtor_id
+p
+  strong Charge box owner:
+  = @transaction.creditor_id
+p
+  strong Box:
+  = @transaction.box.code
+p
+  strong Connector:
+  = @transaction.connector.name
+p
+  strong Kwhs used:
+  = @transaction.kWhs_used
+p
+  strong Price per kwh:
+  = @transaction.price_per_kWh
+p
+  strong Amount:
+  = @transaction.amount
+p
+  strong Date posted:
+  = @transaction.date_posted
+p
+  strong Begin time:
+  = @transaction.begin_time
+p
+  strong End time:
+  = @transaction.end_time
+p
+  strong Status:
+  = @transaction.status
+  
+.row
+  .col-md-12
+    h3 Energy use graph
+    = line_chart @transaction.energy_graph, xtitle: "Time", ytitle: "Energy [Wh]", colors: ["green"]
+
+.row
+  .col-md-12
+    h3 Power graph
+    = line_chart @transaction.power_graph, xtitle: "Time", ytitle: "Watts"
+
+.row
+  .col-md-12
+    h3 Current graph
+    = line_chart @transaction.current_graph, xtitle: "Time", ytitle: "Amps", colors: ["grey"]
+
+
+= link_to 'Edit', edit_transaction_path(@transaction)
+'  |
+= link_to 'Back', transactions_path

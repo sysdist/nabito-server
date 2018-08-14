@@ -1,0 +1,86 @@
+.row
+  .col-md-12.text-right
+    span = button_to "Refresh", "", { :onclick => "history.go(0)", :method => :get, class: ["btn-default"] } 
+    - if current_user.is_admin
+      = link_to t('.edit_connector'), edit_connector_path(@connector), class: ["btn-yellow"]
+ 
+.row
+  .col-md-12
+    /p#notice = notice
+    h1 = t('.Socket') + " ID: " + @connector.code 
+.row
+  .col-md-12
+    .table-responsive
+          table.table.table-bordered.table-hover
+            tbody
+              tr
+                th = "Status:"
+                td = @connector.status
+.row
+  .col-md-12
+    .table-responsive
+      table.table.table-bordered.table-hover.text-center
+        tbody
+          tr
+            th = "Current power:"
+            td
+              - if @connector.in_use
+                  h2 =  @connector.last_power.to_s + " Watts"
+              - else
+                  h2 = "0 Watts" 
+- if !@connector.offline?                        
+    .row
+      .col-md-offset-0.col-md-2.col-xs-offset-1.col-xs-4
+        = link_to "ON", switch_on_connector_path(@connector), class: ["btn-green", "btn-fill"]
+        |&nbsp;    
+      .col-md-offset-0.col-md-2.col-xs-offset-2.col-xs-4
+        = link_to "OFF", switch_off_connector_path(@connector), class: ["btn-red", "btn-fill"]            
+        |&nbsp;        
+- if @connector.in_use                
+    .row
+      .col-md-12
+        h3 Current energy graph
+        = line_chart @connector.current_graph, xtitle: "Time", ytitle: "Watts", curve: false 
+    
+    
+.row
+  .col-md-12
+    .table-responsive
+          table.table.table-bordered.table-hover
+            tbody
+              tr
+                th = "Type:" 
+                td = "CEE 7/5 (Euro plug type E)"
+              tr
+                th = "Voltage (V)"
+                td = @connector.voltage
+              tr 
+                th = "max AC continuous (A)" 
+                td = @connector.i_max
+              tr
+                th = "Price (per kWh):" 
+                td = @connector.price_per_kWh
+.row
+  .col-md-12
+    .table-responsive
+          table.table.table-bordered.table-hover
+            tbody    
+              tr
+                th = "Owner:" 
+                td = @connector.box.user.name
+              tr
+                th = "Code:"
+                td = @connector.code
+              tr
+                th = "URL:"
+                td = @connector.url
+              tr
+                th = "Address:"
+                td = @connector.box.address
+              tr
+                th = "GPS:"
+                td = "#{@connector.box.gps_lat} #{@connector.box.gps_lng}"
+              tr
+                th = "Monitoring frequency:"
+                td = @connector.frequency
+

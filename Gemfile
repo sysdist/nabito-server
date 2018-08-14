@@ -23,6 +23,8 @@ gem 'therubyracer', :platform=>:ruby
 gem 'chartkick'
 gem 'mqtt'
 gem 'figaro'
+gem 'aws-sdk-iotdataplane'
+gem 'aws-sdk-dynamodb'
 
 
 group :development do

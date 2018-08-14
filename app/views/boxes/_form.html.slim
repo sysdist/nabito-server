@@ -1,0 +1,39 @@
+= form_for @box do |f|
+  - if @box.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@box.errors.count, "error")} prohibited this box from being saved:"
+      ul
+        - @box.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :code
+    = f.text_field :code
+  .field
+    = f.label :type
+    = f.text_field :type
+  .field
+    = f.label :power
+    = f.text_field :power
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :gps_lat
+    = f.text_field :gps_lat
+  .field
+    = f.label :gps_lng
+    = f.text_field :gps_lng
+  .field
+    = f.label :status
+    = f.text_field :status
+  .actions = f.submit

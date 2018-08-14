@@ -1,0 +1,39 @@
+h1 Listing boxes
+
+table
+  thead
+    tr
+      th User
+      th Code
+      th Type
+      th Power
+      th Description
+      th Url
+      th Address
+      th Gps lat
+      th Gps lng
+      th Status
+      th
+      th
+      th
+
+  tbody
+    - @boxes.each do |box|
+      tr
+        td = box.user
+        td = box.code
+        td = box.type
+        td = box.power
+        td = box.description
+        td = box.url
+        td = box.address
+        td = box.gps_lat
+        td = box.gps_lng
+        td = box.status
+        td = link_to 'Show', box
+        td = link_to 'Edit', edit_box_path(box)
+        td = link_to 'Destroy', box, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Box', new_box_path

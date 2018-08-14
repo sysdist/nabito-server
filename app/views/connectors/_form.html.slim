@@ -1,0 +1,42 @@
+= form_for @connector do |f|
+  - if @connector.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@connector.errors.count, "error")} prohibited this connector from being saved:"
+      ul
+        - @connector.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :box
+    = f.text_field :box
+  .field
+    = f.label :aws_conn_id
+    = f.text_field :aws_conn_id
+  .field
+    = f.label :code
+    = f.text_field :code
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :power
+    = f.text_field :power
+  .field
+    = f.label :voltage
+    = f.number_field :voltage
+  .field
+    = f.label :i_max
+    = f.text_field :i_max
+  .field
+    = f.label :price_per_kWh
+    = f.text_field :price_per_kWh
+  .field
+    = f.label :current_user
+    = f.number_field :current_user
+  .field
+    = f.label :frequency
+    = f.number_field :frequency
+  .field
+    = f.label :status
+    = f.text_field :status
+  .actions = f.submit

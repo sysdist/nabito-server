@@ -5,18 +5,19 @@ h1 Menu
 
 .row
   .col-md-6
-    h3.text-center Sockets
-    = link_to image_tag("nabito-box.gif", size: "160x160"), el_sockets_path
+    h3.text-center Boxes
+    = link_to image_tag("nabito-box.gif", size: "160x160"), boxes_path
   .col-md-6
-    h3.text-center Bills
-    = link_to image_tag("billing-icon.png", size: "160x160"), socket_usages_path
+    h3.text-center Connectors
+    = link_to image_tag("nabito-box.gif", size: "160x160"), connectors_path
+ 
 .clearfix
   br
   br
 .row
   .col-md-6
-    h3.text-center Graphs and details
-    = link_to image_tag("graph-icon.jpg", size: "160x100"), socket_loads_path
+    h3.text-center Transactions
+    = link_to image_tag("billing-icon.png", size: "160x160"), transactions_path
   .col-md-6
     h3.text-center NFC and RFID tags
     = link_to image_tag("nfc-black-icon.png", size: "160x100"), tags_path

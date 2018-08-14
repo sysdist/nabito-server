@@ -1,0 +1,45 @@
+# == Schema Information
+#
+# Table name: boxes
+#
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  code           :string
+#  type           :string
+#  power          :decimal(, )
+#  description    :string
+#  url            :string
+#  address        :string
+#  gps_lat        :float
+#  gps_lng        :float
+#  status         :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  aws_thing_name :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  code: MyString
+  type: 
+  power: 9.99
+  description: MyString
+  url: MyString
+  address: MyString
+  gps_lat: 1.5
+  gps_lng: 1.5
+  status: MyString
+
+two:
+  user_id: 2
+  code: MyString
+  type: 
+  power: 9.99
+  description: MyString
+  url: MyString
+  address: MyString
+  gps_lat: 1.5
+  gps_lng: 1.5
+  status: MyString

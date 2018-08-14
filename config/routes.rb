@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
   
+  
   scope "(:locale)" do
     root to: 'visitors#index'
+    
+    resources :transactions
+    resources :connectors
+    resources :boxes
+    
+    get 'connectors/:id/switch_on', to: 'connectors#switch_on', as: :switch_on_connector
+    get 'connectors/:id/switch_off', to: 'connectors#switch_off', as: :switch_off_connector
+    post 'connectors/:id/token', to: 'connectors#token'
+    
     
     resources :socket_usages
     resources :socket_loads

@@ -28,6 +28,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :socket_usages
+  has_many :boxes
   has_many :tags
   
   def approve
