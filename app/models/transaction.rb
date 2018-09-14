@@ -26,6 +26,24 @@ class Transaction < ApplicationRecord
   belongs_to :box
   belongs_to :connector
   
+  def debtor
+    User.find(debtor_id)
+  end
+  
+  def creditor
+    User.find(creditor_id)
+  end
+  
+  def tag_start
+    return nil unless tag_id_start
+    Tag.find(tag_id_start)
+  end
+  
+  def tag_finish
+    return nil unless tag_id_finish
+    Tag.find(tag_id_finish)
+  end
+  
   def start
     update(begin_time: Time.now.utc, status: "CHARGING_STARTED")
   end

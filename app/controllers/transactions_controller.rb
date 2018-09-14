@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
+    #@transactions = Transaction.find_by_debtor_id(current_user.id)
     @transactions = Transaction.all
   end
 

@@ -1,36 +1,41 @@
 p#notice = notice
 
-p
-  strong User:
-  = @box.user
-p
-  strong Code:
-  = @box.code
-p
-  strong Type:
-  = @box.type
-p
-  strong Power:
-  = @box.power
-p
-  strong Description:
-  = @box.description
-p
-  strong Url:
-  = @box.url
-p
-  strong Address:
-  = @box.address
-p
-  strong Gps lat:
-  = @box.gps_lat
-p
-  strong Gps lng:
-  = @box.gps_lng
-p
-  strong Status:
-  = @box.status
 
-= link_to 'Edit', edit_box_path(@box)
-'  |
-= link_to 'Back', boxes_path
+.row
+  .col-md-12
+    .table-responsive
+          table.table.table-bordered.table-hover
+            p
+              strong User:
+              = @box.user
+            p
+              strong Code:
+              = @box.code
+            p
+              strong Type:
+              = @box.type
+            p
+              strong Power:
+              = @box.power
+            p
+              strong Description:
+              = @box.description
+            p
+              strong Url:
+              = @box.url
+            p
+              strong Address:
+              = @box.address
+            p
+              strong Gps lat:
+              = @box.gps_lat
+            p
+              strong Gps lng:
+              = @box.gps_lng
+            p
+              strong Status:
+              = @box.status
+            
+            = link_to 'Edit', edit_box_path(@box)
+            '  |
+            = link_to 'Back', boxes_path

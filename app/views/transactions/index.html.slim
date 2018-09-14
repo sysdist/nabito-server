@@ -1,7 +1,7 @@
 h1 Listing transactions
 
 .table-responsive
-  table.table
+  table.table.table-striped.table-hover
     thead
       tr
         th User
@@ -15,15 +15,16 @@ h1 Listing transactions
         th Begin time
         th End time
         th Status
-        th
+        th Tag start
+        th Tag finish
         th
         th
   
     tbody
       - @transactions.each do |transaction|
         tr
-          td = transaction.debtor_id
-          td = transaction.creditor_id
+          td = transaction.debtor.name
+          td = transaction.creditor.name
           td = transaction.box.id
           td = transaction.connector.id
           td = transaction.kWhs_used
@@ -33,10 +34,26 @@ h1 Listing transactions
           td = transaction.begin_time
           td = transaction.end_time
           td = transaction.status
+          td
+            - if transaction.tag_start
+               = link_to transaction.tag_start.uid, tag_path(transaction.tag_start)
+            - else
+               = "-"
+          td
+            - if transaction.tag_finish
+               = link_to transaction.tag_finish.uid, tag_path(transaction.tag_finish)
+            - else
+               = "-"    
+                   
+          /td = "-"   
+          /link_to transaction.tag_finish, tag_path(transaction.tag_finish)          
           td = link_to 'Show', transaction
-          td = link_to 'Edit', edit_transaction_path(transaction)
           td = link_to 'Destroy', transaction, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Transaction', new_transaction_path
+
+/= link_to 'New Transaction', new_transaction_path
+/td = link_to 'Edit', edit_transaction_path(transaction)
+
+
