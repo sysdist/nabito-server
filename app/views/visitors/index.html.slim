@@ -1,32 +1,72 @@
-.brand
-  | Nabito - the open socket
-.address-bar
-  | Systems Distributed | Slovakia | Europe |
-.row
-  .col-lg-12.text-center
-    h2.brand-before
-      small
-        | Welcome to
-    h1.brand-name
+= provide(:title, 'Home')
+
+.masthead.text-center.text-white.d-flex
+  .container.my-auto
+    .row
+      .col-lg-12.mx-auto
+        br
+        br
+        h1.text-uppercase
+          strong Nabito - open source charging network
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+      .col-lg-12.mx-auto
+        p.text-faded.mb-5 Nabito is an open source smart electricity meter solution with user authorization, billing capabilities and user management. It is completely hardware and software open source.
+        a.btn.btn-primary.btn-xl.js-scroll-trigger href="#about"  Find Out More
+
+section#about.bg-primary
+  .container
+    .brand
       | Nabito - the open socket
-    hr.tagline-divider
-    h2
-      small
-        | By 
-        strong
-          | Systems Distributed
-.row
-  .col-lg-12
-    p
-    br
-    br
-    p
-      | Nabito is an open source smart electricity meter with web authorization, billing capabilities and user management. It is completely hardware and software open source.
-    p
-      | It's purpose is to be an intelligent and yet inexpensive electric socket solution for public and private parking lots for slow charging of electric vehicles.  
-    br
-    br
-    - if !user_signed_in?
-        p.text-center = link_to "Log in", new_user_session_path, class: "btn btn-primary btn-lg"
-    br
-    br
+    .address-bar
+      | Systems Distributed | Slovakia | Europe |
+    .row
+      .col-lg-12.mx-auto.text-center
+        h2.section-heading.text-white Nabito - the open socket
+        hr.light.my-4/
+        p.text-faded.mb-4
+      	  | Nabito is an open source smart electricity meter with web authorization, billing capabilities and user management. It is completely hardware and software open source.
+        p.text-faded.mb-4
+	      | It's purpose is to be an intelligent and yet inexpensive electric socket solution for public and private parking lots for slow charging of electric vehicles. 
+        a.btn.btn-light.btn-xl.js-scroll-trigger href="#services"  Get Started!
+        br
+        br
+
+section#contact.bg-dark.text-white
+  .container
+    .row
+      .box
+        .col-lg-12
+          hr
+          h2.intro-text.text-center
+            | Contact 
+            strong
+              | Systems Distributed
+          hr
+        .col-md-8
+          img.img-responsive[src="http://placehold.it/750x450" alt=""]
+        .col-md-4
+          p
+            | Email: 
+            strong
+              a[href="mailto:sysdistcom@gmail.com"]
+                | sysdistcom@gmail.com
+          p
+            | Twitter: 
+            strong
+              a[href="https://twitter.com/sysdist"]
+                | twitter.com/sysdist
+
+          p
+            strong
+              | Systems Distributed 
+              br
+              | Slovakia, Europe
+        .clearfix
+
+
