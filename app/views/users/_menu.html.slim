@@ -1,0 +1,29 @@
+/.container
+/  h1 Menu
+  
+/  - if current_user.is_admin
+/      == render 'users/admin_menu'
+
+.row
+  br
+.container-fluid.text-center
+  .row
+    .col-lg-2.col-sm-4
+      = link_to t('.user_management'), users_path, class: ["btn btn-primary"]
+    .col-lg-2.col-sm-4
+      = link_to t('.boxes'), boxes_path, class: ["btn btn-primary"]
+    .col-lg-2.col-sm-4
+      = link_to t('.connectors'), connectors_path, class: ["btn btn-primary"]
+    .col-lg-2.col-sm-4
+      = link_to t('.transactions'), transactions_path, class: ["btn btn-primary"]
+    .col-lg-2.col-sm-4
+      = link_to t('.RFID_tags'), tags_path, class: ["btn btn-primary"]
+    .col-lg-2.col-sm-4
+      = link_to t('.my_account'), edit_user_registration_path, class: ["btn btn-primary"]
+  
+  
+.row
+  br
+  br
+  br
+

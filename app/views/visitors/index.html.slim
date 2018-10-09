@@ -19,7 +19,7 @@
         p.text-faded.mb-5 Nabito is an open source smart electricity meter solution with user authorization, billing capabilities and user management. It is completely hardware and software open source.
         a.btn.btn-primary.btn-xl.js-scroll-trigger href="#about"  Find Out More
 
-section#about.bg-primary
+section#about
   .container
     .brand
       | Nabito - the open socket
@@ -36,6 +36,71 @@ section#about.bg-primary
         a.btn.btn-light.btn-xl.js-scroll-trigger href="#services"  Get Started!
         br
         br
+
+section#portfolio.p-0
+  .container-fluid.p-0.no-wrap
+    .row.no-gutters.popup-gallery
+      .col-lg-4.col-sm-6
+        = link_to users_path, class: "portfolio-box"
+          /= image_tag("user-management.png", class: "image-fluid")
+          img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=Hardware" /
+          .portfolio-box-caption
+            .portfolio-box-caption-content
+              .project-category.text-faded
+                | Category
+              .project-name
+                | User management
+      .col-lg-4.col-sm-6
+        = link_to boxes_path, class: "portfolio-box"
+          /= image_tag("nabito-box.gif", class: "image-fluid")
+          img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=Software" /          
+          .portfolio-box-caption
+            .portfolio-box-caption-content
+              .project-category.text-faded
+                | Category
+              .project-name
+                | Boxes
+      .col-lg-4.col-sm-6
+        = link_to connectors_path, class: "portfolio-box"
+          /= image_tag("nabito-box.gif", class: "image-fluid")
+          img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=Energy metering" /
+          .portfolio-box-caption
+            .portfolio-box-caption-content
+              .project-category.text-faded
+                | Category
+              .project-name
+                | Connectors
+      .col-lg-4.col-sm-6
+        = link_to transactions_path, class: "portfolio-box"
+          /= image_tag("billing-icon.png", class: "image-fluid")
+          img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=NFC and RFID" /
+          .portfolio-box-caption
+            .portfolio-box-caption-content
+              .project-category.text-faded
+                | Category
+              .project-name
+                | Transactions
+      .col-lg-4.col-sm-6
+        = link_to tags_path, class: "portfolio-box"
+          /= image_tag("nfc-black-icon.png", class: "image-fluid")
+          img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=Transactions" /
+          .portfolio-box-caption
+            .portfolio-box-caption-content
+              .project-category.text-faded
+                | Category
+              .project-name
+                | NFC and RFID tags
+      .col-lg-4.col-sm-6
+        = link_to edit_user_registration_path, class: "portfolio-box"
+          /= image_tag("user-account.svg", class: "image-fluid")
+          img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=User management" /
+          .portfolio-box-caption
+            .portfolio-box-caption-content
+              .project-category.text-faded
+                | Category
+              .project-name
+                | My account
+
 
 section#contact.bg-dark.text-white
   .container
