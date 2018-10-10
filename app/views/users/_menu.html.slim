@@ -14,37 +14,39 @@
       .navbar-header
         .brand-wrapper
           /! Hamburger
-          button.navbar-toggle type="button" 
+          button.navbar-toggle.navbar-toggle2 type="button" 
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          /! Brand
-          .brand-name-wrapper
-            a.navbar-brand href="#" 
-              | Brand
-          /! Search
-          a#search-trigger.btn.btn-default data-toggle="collapse" href="#search" 
-            span.glyphicon.glyphicon-search
-          /! Search body
-          #search.panel-collapse.collapse
-            .panel-body
-              form.navbar-form role="search" 
-                .form-group
-                  input.form-control placeholder="Search" type="text" /
-                button.btn.btn-default type="submit" 
-                  span.glyphicon.glyphicon-ok
       /! Main Menu
       .side-menu-container
-        ul.nav.navbar-nav
-          li 
-            span.glyphicon.glyphicon-send
-            = link_to t('.user_management'), users_path
-          li = link_to t('.boxes'), boxes_path
-          li = link_to t('.connectors'), connectors_path
-          li = link_to t('.transactions'), transactions_path
-          li = link_to t('.tags'), tags_path
-          li = link_to t('.my_account'), edit_user_registration_path
+        ul.nav.navbar-nav.navbar-nav2
+          li
+            a href=users_path 
+              span.glyphicon.glyphicon-user
+              = t('.user_management')
+          li
+            a href=boxes_path 
+              span.glyphicon.glyphicon-stop
+              = t('.boxes')
+          li
+            a href=connectors_path 
+              span.glyphicon.glyphicon-list
+              = t('.connectors')
+          li
+            a href=transactions_path 
+              span.glyphicon.glyphicon-transfer
+              = t('.transactions')
+          li
+            a href=tags_path 
+              span.glyphicon.glyphicon-unchecked
+              = t('.tags')
+          li
+            a href=edit_user_registration_path 
+              span.glyphicon.glyphicon-tasks
+              = t('.my_account')
+              
           
           
           li
@@ -99,32 +101,6 @@
 
 
 
-/.row
-/  br
-/.row  
-/  ul.nav.nav-pills.nav-fill
-/    li.nav-item = link_to t('.user_management'), users_path, class: "nav-link"
-/    li.nav-item = link_to t('.boxes'), boxes_path, class: "nav-link"
-/    li.nav-item = link_to t('.connectors'), connectors_path, class: "nav-link"
-/    li.nav-item = link_to t('.transactions'), transactions_path, class: "nav-link"
-/    li.nav-item = link_to t('.tags'), tags_path, class: "nav-link"
-/    li.nav-item = link_to t('.my_account'), edit_user_registration_path, class: "nav-link"
-    
-  
-/.container-fluid.text-center
-/  .row
-/    .col-lg-2.col-sm-4
-/      = link_to t('.user_management'), users_path, class: ["btn btn-primary"]
-/    .col-lg-2.col-sm-4
-/      = link_to t('.boxes'), boxes_path, class: ["btn btn-primary"]
-/    .col-lg-2.col-sm-4
-/      = link_to t('.connectors'), connectors_path, class: ["btn btn-primary"]
-/    .col-lg-2.col-sm-4
-/      = link_to t('.transactions'), transactions_path, class: ["btn btn-primary"]
-/    .col-lg-2.col-sm-4
-/      = link_to t('.RFID_tags'), tags_path, class: ["btn btn-primary"]
-/    .col-lg-2.col-sm-4
-/      = link_to t('.my_account'), edit_user_registration_path, class: ["btn btn-primary"]
   
   
 .row
