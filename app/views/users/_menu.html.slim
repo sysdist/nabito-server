@@ -5,21 +5,126 @@
 /      == render 'users/admin_menu'
 
 .row
-  br
-.container-fluid.text-center
-  .row
-    .col-lg-2.col-sm-4
-      = link_to t('.user_management'), users_path, class: ["btn btn-primary"]
-    .col-lg-2.col-sm-4
-      = link_to t('.boxes'), boxes_path, class: ["btn btn-primary"]
-    .col-lg-2.col-sm-4
-      = link_to t('.connectors'), connectors_path, class: ["btn btn-primary"]
-    .col-lg-2.col-sm-4
-      = link_to t('.transactions'), transactions_path, class: ["btn btn-primary"]
-    .col-lg-2.col-sm-4
-      = link_to t('.RFID_tags'), tags_path, class: ["btn btn-primary"]
-    .col-lg-2.col-sm-4
-      = link_to t('.my_account'), edit_user_registration_path, class: ["btn btn-primary"]
+  /! uncomment code for absolute positioning tweek see top comment in css
+  /! <div class="absolute-wrapper"> </div
+  /! Menu
+  .side-menu
+    nav.navbar.navbar-default role="navigation" 
+      /! Brand and toggle get grouped for better mobile display
+      .navbar-header
+        .brand-wrapper
+          /! Hamburger
+          button.navbar-toggle type="button" 
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          /! Brand
+          .brand-name-wrapper
+            a.navbar-brand href="#" 
+              | Brand
+          /! Search
+          a#search-trigger.btn.btn-default data-toggle="collapse" href="#search" 
+            span.glyphicon.glyphicon-search
+          /! Search body
+          #search.panel-collapse.collapse
+            .panel-body
+              form.navbar-form role="search" 
+                .form-group
+                  input.form-control placeholder="Search" type="text" /
+                button.btn.btn-default type="submit" 
+                  span.glyphicon.glyphicon-ok
+      /! Main Menu
+      .side-menu-container
+        ul.nav.navbar-nav
+          li 
+            span.glyphicon.glyphicon-send
+            = link_to t('.user_management'), users_path
+          li = link_to t('.boxes'), boxes_path
+          li = link_to t('.connectors'), connectors_path
+          li = link_to t('.transactions'), transactions_path
+          li = link_to t('.tags'), tags_path
+          li = link_to t('.my_account'), edit_user_registration_path
+          
+          
+          li
+            a href="#" 
+              span.glyphicon.glyphicon-send
+              | Link
+          li.active
+            a href="#" 
+              span.glyphicon.glyphicon-plane
+              | Active Link
+          li
+            a href="#" 
+              span.glyphicon.glyphicon-cloud
+              | Link
+          /! Dropdown
+          li#dropdown.panel.panel-default
+            a data-toggle="collapse" href="#dropdown-lvl1" 
+              span.glyphicon.glyphicon-user
+              | Sub Level
+              span.caret
+            /! Dropdown level 1
+            #dropdown-lvl1.panel-collapse.collapse
+              .panel-body
+                ul.nav.navbar-nav
+                  li
+                    a href="#"  Link
+                  li
+                    a href="#"  Link
+                  li
+                    a href="#"  Link
+                  /! Dropdown level 2
+                  li#dropdown.panel.panel-default
+                    a data-toggle="collapse" href="#dropdown-lvl2" 
+                      span.glyphicon.glyphicon-off
+                      | Sub Level
+                      span.caret
+                    #dropdown-lvl2.panel-collapse.collapse
+                      .panel-body
+                        ul.nav.navbar-nav
+                          li
+                            a href="#"  Link
+                          li
+                            a href="#"  Link
+                          li
+                            a href="#"  Link
+          li
+            a href="#" 
+              span.glyphicon.glyphicon-signal
+              | Link
+      /! /.navbar-collapse
+
+
+
+
+/.row
+/  br
+/.row  
+/  ul.nav.nav-pills.nav-fill
+/    li.nav-item = link_to t('.user_management'), users_path, class: "nav-link"
+/    li.nav-item = link_to t('.boxes'), boxes_path, class: "nav-link"
+/    li.nav-item = link_to t('.connectors'), connectors_path, class: "nav-link"
+/    li.nav-item = link_to t('.transactions'), transactions_path, class: "nav-link"
+/    li.nav-item = link_to t('.tags'), tags_path, class: "nav-link"
+/    li.nav-item = link_to t('.my_account'), edit_user_registration_path, class: "nav-link"
+    
+  
+/.container-fluid.text-center
+/  .row
+/    .col-lg-2.col-sm-4
+/      = link_to t('.user_management'), users_path, class: ["btn btn-primary"]
+/    .col-lg-2.col-sm-4
+/      = link_to t('.boxes'), boxes_path, class: ["btn btn-primary"]
+/    .col-lg-2.col-sm-4
+/      = link_to t('.connectors'), connectors_path, class: ["btn btn-primary"]
+/    .col-lg-2.col-sm-4
+/      = link_to t('.transactions'), transactions_path, class: ["btn btn-primary"]
+/    .col-lg-2.col-sm-4
+/      = link_to t('.RFID_tags'), tags_path, class: ["btn btn-primary"]
+/    .col-lg-2.col-sm-4
+/      = link_to t('.my_account'), edit_user_registration_path, class: ["btn btn-primary"]
   
   
 .row

@@ -15,13 +15,16 @@ html
       .masthead2.text-center.text-white.d-flex
       == render 'layouts/navigation'
     main[role="main"]
-      -if yield(:title)!='Home'
-        .container
-          == render 'layouts/messages'
-          == yield
-          == render 'layouts/footer'
-      -else
+      -if yield(:title)=='Home'
         == render 'layouts/messages'
         == yield
         == render 'layouts/footer'
+      -else
+        -if user_signed_in?
+          == render 'users/menu'
+        .side-body
+          .container
+            == render 'layouts/messages'
+            == yield
+            == render 'layouts/footer'
     
