@@ -19,7 +19,7 @@
         p.text-faded.mb-5 Nabito is an open source smart electricity meter solution with user authorization, billing capabilities and user management. It is completely hardware and software open source.
         a.btn.btn-primary.btn-xl.js-scroll-trigger href="#about"  Find Out More
 
-section#about
+section#about.bg-primary
   .container
     .brand
       | Nabito - the open socket
@@ -33,7 +33,7 @@ section#about
       	  | Nabito is an open source smart electricity meter with web authorization, billing capabilities and user management. It is completely hardware and software open source.
         p.text-faded.mb-4
 	      | It's purpose is to be an intelligent and yet inexpensive electric socket solution for public and private parking lots for slow charging of electric vehicles. 
-        a.btn.btn-light.btn-xl.js-scroll-trigger href="#services"  Get Started!
+        a.btn.btn-light.btn-xl.js-scroll-trigger href=new_user_registration_path  Get Started!
         br
         br
 
@@ -41,7 +41,7 @@ section#portfolio.p-0
   .container-fluid.p-0.no-wrap
     .row.no-gutters.popup-gallery
       .col-lg-4.col-sm-6
-        = link_to users_path, class: "portfolio-box"
+        = link_to '#', class: "portfolio-box"
           /= image_tag("user-management.png", class: "image-fluid")
           img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=Hardware" /
           .portfolio-box-caption
@@ -51,7 +51,7 @@ section#portfolio.p-0
               .project-name
                 | User management
       .col-lg-4.col-sm-6
-        = link_to boxes_path, class: "portfolio-box"
+        = link_to '#', class: "portfolio-box"
           /= image_tag("nabito-box.gif", class: "image-fluid")
           img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=Software" /          
           .portfolio-box-caption
@@ -61,7 +61,7 @@ section#portfolio.p-0
               .project-name
                 | Boxes
       .col-lg-4.col-sm-6
-        = link_to connectors_path, class: "portfolio-box"
+        = link_to '#', class: "portfolio-box"
           /= image_tag("nabito-box.gif", class: "image-fluid")
           img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=Energy metering" /
           .portfolio-box-caption
@@ -71,7 +71,7 @@ section#portfolio.p-0
               .project-name
                 | Connectors
       .col-lg-4.col-sm-6
-        = link_to transactions_path, class: "portfolio-box"
+        = link_to '#', class: "portfolio-box"
           /= image_tag("billing-icon.png", class: "image-fluid")
           img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=NFC and RFID" /
           .portfolio-box-caption
@@ -81,7 +81,7 @@ section#portfolio.p-0
               .project-name
                 | Transactions
       .col-lg-4.col-sm-6
-        = link_to tags_path, class: "portfolio-box"
+        = link_to '#', class: "portfolio-box"
           /= image_tag("nfc-black-icon.png", class: "image-fluid")
           img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=Transactions" /
           .portfolio-box-caption
@@ -91,7 +91,7 @@ section#portfolio.p-0
               .project-name
                 | NFC and RFID tags
       .col-lg-4.col-sm-6
-        = link_to edit_user_registration_path, class: "portfolio-box"
+        = link_to '#', class: "portfolio-box"
           /= image_tag("user-account.svg", class: "image-fluid")
           img.img-fluid alt="" src="https://via.placeholder.com/650x350?text=User management" /
           .portfolio-box-caption
@@ -99,7 +99,7 @@ section#portfolio.p-0
               .project-category.text-faded
                 | Category
               .project-name
-                | My account
+                | Users
 
 
 section#contact.bg-dark.text-white
@@ -114,7 +114,7 @@ section#contact.bg-dark.text-white
               | Systems Distributed
           hr
         .col-md-8
-          img.img-responsive[src="http://placehold.it/750x450" alt=""]
+          img.img-responsive[src=image_path("open-source.png") alt=""]
         .col-md-4
           p
             | Email: 

@@ -1,56 +1,85 @@
-h1 Listing transactions
+h1 Transactions
+br
 
-.table-responsive
-  table.table.table-striped.table-hover
-    thead
-      tr
-        th User
-        th Charger's owner
-        th Box
-        th Connector
-        th Kwhs used
-        th Price per kwh
-        th Amount
-        th Date
-        th Begin time
-        th End time
-        th Status
-        th Tag start
-        th Tag finish
-        th
-        th
-  
-    tbody
-      - @transactions.each do |transaction|
-        tr
-          td = transaction.debtor.name
-          td = transaction.creditor.name
-          td = transaction.box.id
-          td = transaction.connector.id
-          td = transaction.kWhs_used
-          td = transaction.price_per_kWh
-          td = transaction.amount
-          td = transaction.date_posted
-          td = transaction.begin_time
-          td = transaction.end_time
-          td = transaction.status
-          td
-            - if transaction.tag_start
-               = link_to transaction.tag_start.uid, tag_path(transaction.tag_start)
-            - else
-               = "-"
-          td
-            - if transaction.tag_finish
-               = link_to transaction.tag_finish.uid, tag_path(transaction.tag_finish)
-            - else
-               = "-"    
+/          a href=transaction_path
+      
+ul.list-group
+    - @transactions.each do |transaction|
+      li.list-group-item
+        = link_to transaction
+          .row
+            .col-md-3
+              p = transaction.begin_time
+            .col-md-3
+              | Amount: 
+              = transaction.amount
+              |  EUR
+            .col-md-2
+              = transaction.kWhs_used
+              |  kWhs 
+            .col-md-2
+              = transaction.price_per_kWh
+              |  EUR/kWhs
+        
+/.panel.panel-default
+/  .panel-heading
+/    h3.panel-title Panel title
+/  .panel-body
+/    | Panel content
+
+
+
+/.table-responsive
+/  table.table.table-striped.table-hover
+/    thead
+/      tr
+/        th User
+/        th Charger's owner
+/        th Box
+/        th Connector
+/        th Kwhs used
+/        th Price per kwh
+/        th Amount
+/        th Date
+/        th Begin time
+/        th End time
+/        th Status
+/        th Tag start
+/        th Tag finish
+/        th
+/        th
+/  
+/    tbody
+/      - @transactions.each do |transaction|
+/        tr
+/          td = transaction.debtor.name
+/          td = transaction.creditor.name
+/          td = transaction.box.id
+/          td = transaction.connector.id
+/          td = transaction.kWhs_used
+/          td = transaction.price_per_kWh
+/          td = transaction.amount
+/          td = transaction.date_posted
+/          td = transaction.begin_time
+/          td = transaction.end_time
+/          td = transaction.status
+/          td
+/            - if transaction.tag_start
+/               = link_to transaction.tag_start.uid, tag_path(transaction.tag_start)
+/            - else
+/               = "-"
+/          td
+/            - if transaction.tag_finish
+/               = link_to transaction.tag_finish.uid, tag_path(transaction.tag_finish)
+/            - else
+/               = "-"    
                    
           /td = "-"   
           /link_to transaction.tag_finish, tag_path(transaction.tag_finish)          
-          td = link_to 'Show', transaction
-          td = link_to 'Destroy', transaction, data: { confirm: 'Are you sure?' }, method: :delete
+/          td = link_to 'Show', transaction
+/          td = link_to 'Destroy', transaction, data: { confirm: 'Are you sure?' }, method: :delete
 
-br
+/br
 
 
 /= link_to 'New Transaction', new_transaction_path

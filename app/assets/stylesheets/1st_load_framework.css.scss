@@ -20,6 +20,16 @@ body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
+.btn-primary {
+    background-color: #f05f40;
+    border-color: #f05f40;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+    color: #fff;
+    background-color: #ee4b28!important;
+}
+
 .bg-primary {
     background-color: #f05f40!important;
 }
@@ -411,6 +421,31 @@ section {
   width: 100%;
 }
 
+
+a.list-group-item {
+    height:auto;
+    min-height:220px;
+}
+
+
+.list-group-item > a {
+  color:#333;
+}
+
+.list-group-item > a:hover,
+.list-group-item > a:focus,
+.list-group-item > a:focus:hover, {
+  color: #F05F40;
+}
+
+/*
+a.list-group-item.active small {
+    color:#fff;
+}
+*/
+.stars {
+    margin:20px auto 1px;    
+}
 
 /*
 .navbar-fixed-top {
