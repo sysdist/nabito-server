@@ -11,100 +11,43 @@
   .side-menu
     nav.navbar.navbar-default role="navigation" 
       /! Brand and toggle get grouped for better mobile display
-      .navbar-header
+      .navbar-header.navbar-header2
         .brand-wrapper
           /! Hamburger
-          button.navbar-toggle.navbar-toggle2 type="button" 
+          button.navbar-toggle.navbar-toggle2 type="button" data-target="#sidebar" data-toggle="collapse"
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
       /! Main Menu
       .side-menu-container
-        ul.nav.navbar-nav.navbar-nav2
-          li
-            a href=users_path 
-              span.glyphicon.glyphicon-user
-              = t('.user_management')
-          li
-            a href=boxes_path 
-              span.glyphicon.glyphicon-stop
-              = t('.boxes')
-          li
-            a href=connectors_path 
-              span.glyphicon.glyphicon-list
-              = t('.connectors')
-          li
-            a href=transactions_path 
-              span.glyphicon.glyphicon-transfer
-              = t('.transactions')
-          li
-            a href=tags_path 
-              span.glyphicon.glyphicon-unchecked
-              = t('.tags')
-          li
-            a href=edit_user_registration_path 
-              span.glyphicon.glyphicon-tasks
-              = t('.my_account')
-              
-          
-          
-          li
-            a href="#" 
-              span.glyphicon.glyphicon-send
-              | Link
-          li.active
-            a href="#" 
-              span.glyphicon.glyphicon-plane
-              | Active Link
-          li
-            a href="#" 
-              span.glyphicon.glyphicon-cloud
-              | Link
-          /! Dropdown
-          li#dropdown.panel.panel-default
-            a data-toggle="collapse" href="#dropdown-lvl1" 
-              span.glyphicon.glyphicon-user
-              | Sub Level
-              span.caret
-            /! Dropdown level 1
-            #dropdown-lvl1.panel-collapse.collapse
-              .panel-body
-                ul.nav.navbar-nav
-                  li
-                    a href="#"  Link
-                  li
-                    a href="#"  Link
-                  li
-                    a href="#"  Link
-                  /! Dropdown level 2
-                  li#dropdown.panel.panel-default
-                    a data-toggle="collapse" href="#dropdown-lvl2" 
-                      span.glyphicon.glyphicon-off
-                      | Sub Level
-                      span.caret
-                    #dropdown-lvl2.panel-collapse.collapse
-                      .panel-body
-                        ul.nav.navbar-nav
-                          li
-                            a href="#"  Link
-                          li
-                            a href="#"  Link
-                          li
-                            a href="#"  Link
-          li
-            a href="#" 
-              span.glyphicon.glyphicon-signal
-              | Link
-      /! /.navbar-collapse
-
-
-
-
-  
+        #sidebar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-nav2
+            li
+              a href=users_path 
+                span.glyphicon.glyphicon-user
+                = t('.user_management')
+            li
+              a href=boxes_path 
+                span.glyphicon.glyphicon-stop
+                = t('.boxes')
+            li
+              a href=connectors_path 
+                span.glyphicon.glyphicon-list
+                = t('.connectors')
+            li
+              a href=transactions_path 
+                span.glyphicon.glyphicon-transfer
+                = t('.transactions')
+            li
+              a href=tags_path 
+                span.glyphicon.glyphicon-unchecked
+                = t('.tags')
+            li
+              a href=edit_user_registration_path 
+                span.glyphicon.glyphicon-tasks
+                = t('.my_account')
   
 .row
-  br
-  br
   br
 

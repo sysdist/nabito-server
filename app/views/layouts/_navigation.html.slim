@@ -7,12 +7,8 @@ nav#mainNav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to "NABITO - the open socket", root_path, class: "navbar-brand nav-link"
-      
+      = link_to "NABITO - open socket", root_path, class: "navbar-brand nav-link"
     #navbar.navbar-collapse.collapse
-      ul.nav.navbar-nav
-        - if user_signed_in?
-            li.nav-item = link_to t('.menu'), menu_user_path(current_user), class: "nav-link"
       ul.nav.navbar-nav.navbar-right
         == render 'layouts/links_auth'
         li.dropdown.nav-item
@@ -25,3 +21,6 @@ nav#mainNav.navbar.navbar-default.navbar-fixed-top
         /    li = link_to t('.lang.czech'), locale: :cs
         /    li = link_to t('.lang.german'), locale: :de
         /    li = link_to t('.lang.polish'), locale: :pl
+
+
+/      ul.nav.navbar-nav

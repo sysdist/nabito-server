@@ -26,6 +26,7 @@ $(function () {
 	});
 });
 $(function () {
+  
     $('.navbar-toggle2').click(function () {
         $('.navbar-nav2').toggleClass('slide-in');
         $('.side-body').toggleClass('body-slide-in');
@@ -36,6 +37,7 @@ $(function () {
         
     });
    
+   /*
    // Remove menu for searching
    $('#search-trigger').click(function () {
         $('.navbar-nav').removeClass('slide-in');
@@ -45,4 +47,5 @@ $(function () {
         //$('.absolute-wrapper').removeClass('slide-in');
 
     });
+    */
 });

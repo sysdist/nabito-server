@@ -35,7 +35,7 @@ def auth_tag(topic, message)
     
     if tag_nfc 
       #t = tag_string.gsub(/\s+/, "")
-      site = ENV['NABITO_SITE']
+      site = ENV['NABITO_SITE_LOC']
       tag_string = tag_nfc["userid"]
       puts "curl -X POST -d \"tag_uid=#{tag_string}\" #{site}/en/connectors/1/token"
       
