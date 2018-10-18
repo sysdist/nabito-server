@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     #@transactions = Transaction.find_by_debtor_id(current_user.id)
-    @transactions = Transaction.all
+    @transactions = Transaction.all.order(created_at: :desc)
   end
 
   # GET /transactions/1

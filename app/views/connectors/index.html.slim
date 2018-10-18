@@ -1,42 +1,28 @@
 h1 Listing connectors
 
-.row
-  .col-md-12
-    .table-responsive
-          table.table.table-bordered.table-hover
-            thead
-              tr
-                th Box
-                th Aws conn
-                th Code
-                th Url
-                th Power
-                th Voltage
-                th I max
-                th Price per kwh
-                th Current user
-                th Status
-                th
-                th
-                th
-          
-            tbody
-              - @connectors.each do |connector|
-                tr
-                  td = connector.box
-                  td = connector.aws_conn_id
-                  td = connector.code
-                  td = connector.url
-                  td = connector.power
-                  td = connector.voltage
-                  td = connector.i_max
-                  td = connector.price_per_kWh
-                  td = connector.current_user
-                  td = connector.status
-                  td = link_to 'Show', connector
-                  td = link_to 'Edit', edit_connector_path(connector)
-                  td = link_to 'Destroy', connector, data: { confirm: 'Are you sure?' }, method: :delete
+ul.list-group
+    - @connectors.each do |connector|
+      li.list-group-item
+        = link_to connector
+          .row
+            .col-md-3
+              | Box ID: 
+              = connector.box.code
+            .col-md-3
+              | AWS connector ID: 
+              = connector.aws_conn_id
+            .col-md-2
+              |  Max Amps: 
+              = connector.i_max
+            .col-md-2
+              | Status 
+              = connector.status
+              
 
-br
+/                  td = link_to 'Show', connector
+/                  td = link_to 'Edit', edit_connector_path(connector)
+/                  td = link_to 'Destroy', connector, data: { confirm: 'Are you sure?' }, method: :delete
 
-= link_to 'New Connector', new_connector_path
+/br
+
+/= link_to 'New Connector', new_connector_path
