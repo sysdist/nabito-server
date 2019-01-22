@@ -1,31 +1,26 @@
-h1 Listing tags
-table-responsive
-  table.table
-    thead
-      tr
-        th User
-        th Tag type
-        th Uid
-        th Token
-        th Pin
-        th Status
-        th
-        th
-        th
-  
-    tbody
-      - @tags.each do |tag|
-        tr
-          td = tag.user_id
-          td = tag.tag_type
-          td = tag.uid
-          td = tag.token
-          td = tag.pin
-          td = tag.status
-          td = link_to 'Show', tag
-          td = link_to 'Edit', edit_tag_path(tag)
-          td = link_to 'Destroy', tag, data: { confirm: 'Are you sure?' }, method: :delete
+h1 Tags
+
+      
+ul.list-group
+    - @tags.each do |tag|
+      li.list-group-item
+        = link_to tag
+          .row
+            .col-md-3
+              | User ID:
+              p = tag.user_id
+            .col-md-3
+              | UID: 
+              = tag.uid
+            .col-md-2
+              = tag.token
+            .col-md-2
+              | Status:
+              = tag.status
 
 br
+= link_to 'New Tag', new_tag_path        
 
-= link_to 'New Tag', new_tag_path
+
+
+

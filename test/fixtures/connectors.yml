@@ -47,3 +47,16 @@ two:
   current_user: 1
   frequency: 1
   status: MyString
+
+three:
+  box: two
+  aws_conn_id: conn3
+  code: conn3
+  url: MyString
+  power: 9.99
+  voltage: 1
+  i_max: 9.99
+  price_per_kWh: 9.99
+  current_user: 1
+  frequency: 1
+  status: MyString
